@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %} 
+<style>
+	.container{
+		margin-left : 100px;
+	}
+	.button{
+	  width:100px;
+	  height:50px;
+	  background-color: blue;
+	  color: white;
+	  border-radius: 10px;
+	  margin: 10px;
+	}
+  </style>
+  <center>
+	<button class="button" onclick="location.href='/webdev/register'" type="button">Sign Up</button>
+    <button class="button" onclick="location.href='{% url 'login' %}'" type="button">Log In</button>
+  </center>    
+
+<div class ="container">
+ <h1>Signup with Github profile</h1>
+	
+	<form method="POST">
+		{% csrf_token %} 
+		{{form.as_p}}
+		<button class="button" type="submit">Signup</button>
+	  </form>
+</div>
+
+{% endblock %}
+

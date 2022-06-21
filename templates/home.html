@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+  .button{
+    width:100px;
+    height:50px;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    margin: 10px;
+  }
+</style>
+{% if user.is_authenticated %}
+    <center>
+      <button class="button" onclick="location.href='webdev/Explore'" type="button">Explore</button>
+      <button class="button" onclick="location.href='webdev/MyProfile'" type="button">Profile</button>
+      <button class="button" onclick="location.href='{% url 'logout' %}'" type="button">Log Out</button>
+    </center>
+{% else %}
+  <center>
+    <button class="button" onclick="location.href='webdev/register'" type="button">Sign Up</button>
+    <button class="button" onclick="location.href='{% url 'login' %}'" type="button">Log In</button>
+  </center>
+{% endif %}
+{% endblock %}

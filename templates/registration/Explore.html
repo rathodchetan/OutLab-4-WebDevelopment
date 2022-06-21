@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Profiles</title>
+{% endblock %}
+
+{% block content %}
+<style>
+    .button1{
+      width:100px;
+      height:50px;
+      background-color: white;
+      color: blue;
+      border-radius: 10px;
+      margin: 10px;
+      border-left-color: blue;
+      border-right-color: blue;
+      border-bottom-color: white;
+      border-top-color: white;
+    }
+    .button{
+      width:100px;
+      height:50px;
+      background-color: blue;
+      color: white;
+      border-radius: 10px;
+      margin: 10px;
+    }
+  </style>
+
+<center>
+  <button class="button" onclick="location.href='/webdev/Explore'" type="button">Explore</button>
+  <button class="button" onclick="location.href='/webdev/MyProfile'" type="button">Profile</button>
+  <button class="button" onclick="location.href='{% url 'logout' %}'" type="button">Log Out</button>
+</center>
+
+<ul>  
+
+{% for Website, profile in allprofile %}
+<li><button class="button1" onclick="location.href='{{ Website }}'" type="button">{{ profile.username }}</button></li>
+
+{% endfor %}
+</ul>
+
+{% endblock %}
